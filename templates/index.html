@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
+        <script type="text/javascript" >
+            $(function(){
+                let socket = io.connect();
+                $(function(){
+                    socket.on("msg",function(m){
+                        let msg = JSON.parse(m);
+                        let html = "<div class='infor'>";
+                        html += "<div class='pic'><img src="+msg["pic"]+"></div>"
+                        html += "<div class='text'>";
+                        html += "<p>名字："+msg["name"]+"</p>";
+                        html += "<br>";
+                        html += "<p>個性簽名：</p><br>"
+                        html += msg["sign"];
+                        html += "<p>訊息：<p><br>"
+                        html += msg["msg"];
+                        html += "</div></div><br>";
+                        $("#content").append(html);
+                    })
+                })
+            })
+        </script>
+        <style type="text/css">
+            img{
+                width:100;
+                border-radius: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            
+        </div>
+    </body>
+</html>
