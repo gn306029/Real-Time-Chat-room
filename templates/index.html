@@ -11,13 +11,11 @@
                         let html = "<div class='infor'>";
                         html += "<div class='pic'><img src="+msg["pic"]+"></div>"
                         html += "<div class='text'>";
-                        html += "<p>名字："+msg["name"]+"</p>";
-                        html += "<br>";
-                        html += "<p>個性簽名：</p><br>"
-                        html += msg["sign"];
-                        html += "<p>訊息：<p><br>"
-                        html += msg["msg"];
-                        html += "</div></div><br>";
+                        html += "<p>"+msg["name"]+"："+msg["msg"]+"</p>";
+                        //html += "<p>個性簽名：</p><br>"
+                        //html += msg["sign"];
+                        //html += "<p>訊息：<p>"
+                        html += "</div></div><hr>";
                         $("#content").append(html);
                     })
                 })
@@ -27,6 +25,12 @@
             img{
                 width:100;
                 border-radius: 50px;
+            }
+            .pic{
+                display:inline-block;
+            }
+            .text{
+                display:inline-block;
             }
         </style>
     </head>

@@ -50,7 +50,7 @@ def handle_message(event):
     data = {
         "name":profile.display_name,
         "pic":profile.picture_url,
-        "sign":profile.status_message,
+        #"sign":profile.status_message,
         "msg":event.message.text
     }
     socketio.emit("msg",json.dumps(data))
